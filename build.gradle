@@ -78,6 +78,12 @@ allprojects {
     apply plugin: 'idea'
 }
 
+allprojects {
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+        outputs.cacheIf { true }
+    }
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = 3.1
 }
